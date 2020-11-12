@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">T3E6</string>
+    <string name="value_unknown">Unknown</string>
+    <string name="movie_name">Name:</string>
+    <string name="movie_director">Director:</string>
+    <string name="show_ab">Show ActionBar</string>
+    <string name="hide_ab">Hide ActionBar</string>
+    <string name="theater_1">Movie theater 1</string>
+    <string name="theater_2">Movie theater 2</string>
+    <string name="theater_3">Movie theater 3</string>
+    <string name="no_movie_selected">Tap over an entry to select it. Its details will be shown here. Tap over it again to deselect it.</string>
+
+    <string name="movie_akira_name">Akira</string>
+    <string name="movie_akira_director_name">Akira\'s director</string>
+    <string name="movie_akira_summary">Akira\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_alien_name">Alien</string>
+    <string name="movie_alien_director_name">Alien\'s director</string>
+    <string name="movie_alien_summary">Alien\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_blade_name">Blade</string>
+    <string name="movie_blade_director_name">Blade\'s director</string>
+    <string name="movie_blade_summary">Blade\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_d2001_name">D2001</string>
+    <string name="movie_d2001_director_name">D2001\'s director</string>
+    <string name="movie_d2001_summary">D2001\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_dune_name">Dune</string>
+    <string name="movie_dune_director_name">Dune\'s director</string>
+    <string name="movie_dune_summary">Dune\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_interstellar_name">Interstellar</string>
+    <string name="movie_interstellar_director_name">Interstellar\'s director</string>
+    <string name="movie_interstellar_summary">Interstellar\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_martian_name">Martian</string>
+    <string name="movie_martian_director_name">Martian\'s director</string>
+    <string name="movie_martian_summary">Martian\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_matrix_name">Matrix</string>
+    <string name="movie_matrix_director_name">Matrix\'s director</string>
+    <string name="movie_matrix_summary">Matrix\'s summary ------------------------------------------------------------</string>
+
+    <string name="movie_startrek_name">Startrek</string>
+    <string name="movie_startrek_director_name">Startrek\'s director</string>
+    <string name="movie_startrek_summary">Startrek\'s summary ------------------------------------------------------------</string>
+</resources>

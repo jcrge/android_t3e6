@@ -1,0 +1,16 @@
+- Make the full movie info layout. Make sure it occupies a third of to half the screen and has vertical scroll.
+  (That is, the scroll container itself should occupy that much)
+- Use the full movie info layout to display the currently selected movie
+- Make the ActionBar visibility toggle button work
+- Fix the problem where the horizontal divider is too small when the screen is rotated
+
+- Make the ActionBar menu.
+- Make the detailed list activity. Make the corresponding menu button redirect to it and make items selectable.
+- Set the item onclick event in the aforementioned list to pass the movie info to a new activity that
+  displays the properties of the given movie in full. Create this activity too, obviously.
+- Make it such that if the cover is touched, the URL is followed externally.
+
+- Make the selection and movie list live through instances of the main activity. It's important to get this
+  working before we implement adding new movies to the list.
+
+- Finally, the favorites list and new movie menu have to be implemented. This shouldn't be complicated.
