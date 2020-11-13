@@ -1,5 +1,6 @@
 package com.example.t3e6;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -79,6 +80,15 @@ public class MainActivity extends AppCompatActivity {
     private void setSelectedMovieVisible(boolean visible) {
         noSelectionMessage.setVisibility(visible ? View.GONE : View.VISIBLE);
         selectionView.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    public void toggleActionBarVisibility(View v) {
+        ActionBar bar = getSupportActionBar();
+        if (bar.isShowing()) {
+            bar.hide();
+        } else {
+            bar.show();
+        }
     }
 
     private ArrayList<Movie> getDefaultMovieList() {
