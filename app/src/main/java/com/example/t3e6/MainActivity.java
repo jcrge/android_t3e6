@@ -17,10 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private MainAdapter mainAdapter;
 
     private ConstraintLayout selectionView;
-    private TextView selectionMovieName;
-    private TextView selectionDirectorName;
-    private ImageView selectionCoverImage;
-    private ImageView selectionAgeRatingImage;
+    private TextView selectedName;
+    private TextView selectedDirector;
+    private TextView selectedTheater;
+    private TextView selectedReleaseDate;
+    private TextView selectedAgeRating;
+    private ImageView selectedCover;
 
     private ConstraintLayout noSelectionMessage;
 
@@ -37,10 +39,12 @@ public class MainActivity extends AppCompatActivity {
         toggleAbButton = findViewById(R.id.toggleAB);
         noSelectionMessage = findViewById(R.id.noSelectionMessage);
         selectionView = findViewById(R.id.selectedMovieView);
-        selectionMovieName = selectionView.findViewById(R.id.overviewMovieName);
-        selectionDirectorName = selectionView.findViewById(R.id.overviewDirectorName);
-        selectionCoverImage = selectionView.findViewById(R.id.overviewCover);
-        selectionAgeRatingImage = selectionView.findViewById(R.id.overviewAgeRating);
+        selectedName = selectionView.findViewById(R.id.selectedName);
+        selectedDirector = selectionView.findViewById(R.id.selectedDirector);
+        selectedTheater = selectionView.findViewById(R.id.selectedTheater);
+        selectedReleaseDate = selectionView.findViewById(R.id.selectedReleaseDate);
+        selectedAgeRating = selectionView.findViewById(R.id.selectedAgeRating);
+        selectedCover = selectionView.findViewById(R.id.selectedCover);
 
         movies = getDefaultMovieList();
         mainAdapter = new MainAdapter(movies);
@@ -48,10 +52,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Movie movie = movies.get(browserRecyclerView.getChildAdapterPosition(v));
-                selectionMovieName.setText(movie.getMovieName());
-                selectionDirectorName.setText(movie.getDirectorName());
-                selectionCoverImage.setImageResource(movie.getCoverId());
-                selectionAgeRatingImage.setImageResource(movie.getAgeRating().getResId());
+                selectedName.setText(movie.getMovieName());
+                selectedDirector.setText(movie.getDirectorName());
+                selectedTheater.setText(movie.getTheaterName());
+                selectedReleaseDate.setText(movie.getReleaseDate());
+                selectedAgeRating.setText(movie.getAgeRating().getText());
+                selectedCover.setImageResource(movie.getCoverId());
                 selectionView.setVisibility(View.VISIBLE);
                 setSelectedMovieVisible(true);
             }

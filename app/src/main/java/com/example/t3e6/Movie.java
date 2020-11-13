@@ -91,20 +91,26 @@ public class Movie {
     }
 
     public static enum AgeRating {
-        G(R.drawable.g),
-        NC17(R.drawable.nc17),
-        PG(R.drawable.pg),
-        PG13(R.drawable.pg13),
-        R_(R.drawable.r);
+        G("G", R.drawable.g),
+        NC17("NC17", R.drawable.nc17),
+        PG("PG", R.drawable.pg),
+        PG13("PG13", R.drawable.pg13),
+        R_("R", R.drawable.r);
 
         private int resId;
+        private String text;
 
-        AgeRating(int resId) {
+        AgeRating(String text, int resId) {
+            this.text = text;
             this.resId = resId;
         }
 
         public int getResId() {
             return resId;
+        }
+
+        public String getText() {
+            return text;
         }
     };
 }

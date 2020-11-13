@@ -3,6 +3,9 @@
     <string name="value_unknown">Unknown</string>
     <string name="movie_name">Name:</string>
     <string name="movie_director">Director:</string>
+    <string name="movie_theater">Theater:</string>
+    <string name="movie_release_date">Release date:</string>
+    <string name="movie_age_rating">Age rating:</string>
     <string name="show_ab">Show ActionBar</string>
     <string name="hide_ab">Hide ActionBar</string>
     <string name="theater_1">Movie theater 1</string>

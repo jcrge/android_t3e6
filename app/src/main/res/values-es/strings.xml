@@ -4,6 +4,9 @@
     <string name="value_unknown">Desconocido</string>
     <string name="movie_name">Nombre:</string>
     <string name="movie_director">Director:</string>
+    <string name="movie_theater">Sala de cine:</string>
+    <string name="movie_release_date">Fecha de estreno:</string>
+    <string name="movie_age_rating">Clasificación por edad:</string>
     <string name="show_ab">Mostrar ActionBar</string>
     <string name="hide_ab">Ocultar ActionBar</string>
     <string name="theater_1">Sala de cine 1</string>
