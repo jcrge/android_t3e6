@@ -6,6 +6,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -75,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
         browserRecyclerView.setAdapter(mainAdapter);
 
         setSelectedMovieVisible(false);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_menu, menu);
+        return true;
     }
 
     private void setSelectedMovieVisible(boolean visible) {
