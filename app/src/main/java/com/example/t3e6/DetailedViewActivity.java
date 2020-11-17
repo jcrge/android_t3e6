@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 
 public class DetailedViewActivity extends AppCompatActivity {
+    public static final String EXTRA_SELECTED_MOVIE = "com.example.t3e6.EXTRA_SELECTED_MOVIE";
+
     private RecyclerView detailedRecyclerView;
 
     private ArrayList<Movie> movies;
@@ -27,6 +30,15 @@ public class DetailedViewActivity extends AppCompatActivity {
 
         movies = MovieList.getInstance();
         detailedAdapter = new DetailedAdapter(movies);
+        detailedAdapter.setSelectionListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = detailedRecyclerView.getChildAdapterPosition(v);
+                Intent intent = new Intent(getApplicationContext(), SummaryActivity.class);
+                intent.putExtra(EXTRA_SELECTED_MOVIE, pos);
+                startActivity(intent);
+            }
+        });
 
         detailedRecyclerView.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
