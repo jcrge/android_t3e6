@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView selectedReleaseDate;
     private TextView selectedAgeRating;
     private ImageView selectedCover;
+    private ImageView selectedFavorite;
 
     private ConstraintLayout noSelectionMessage;
 
@@ -54,8 +55,10 @@ public class MainActivity extends AppCompatActivity {
         selectedReleaseDate = selectionView.findViewById(R.id.selectedReleaseDate);
         selectedAgeRating = selectionView.findViewById(R.id.selectedAgeRating);
         selectedCover = selectionView.findViewById(R.id.selectedCover);
+        selectedFavorite = selectionView.findViewById(R.id.selectedFavorite);
 
         movies = MovieList.getInstance();
+        movies.get(0).setFavorite(true);
         mainAdapter = new MainAdapter(movies);
         mainAdapter.setSelectionListener(new View.OnClickListener() {
             @Override
@@ -125,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
             selectedReleaseDate.setText(movie.getReleaseDate());
             selectedAgeRating.setText(movie.getAgeRating().getText());
             selectedCover.setImageResource(movie.getCoverId());
+            selectedFavorite.setVisibility(movie.isFavorite() ? View.VISIBLE : View.INVISIBLE);
         }
 
         noSelectionMessage.setVisibility(visible ? View.GONE : View.VISIBLE);
