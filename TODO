@@ -1,9 +1,3 @@
-- Make the detailed list activity. Make the corresponding menu button redirect to it and make items selectable.
-- Set the item onclick event in the aforementioned list to pass the movie info to a new activity that
-  displays the properties of the given movie in full. Create this activity too, obviously.
-- Make it such that if the cover is touched, the URL is followed externally.
-
-- Finally, the favorites list and new movie menu have to be implemented. This shouldn't be complicated.
-
 - Add length
-- Show if favorite in the selection view
+
+- Implement the favorites and new movie menus
