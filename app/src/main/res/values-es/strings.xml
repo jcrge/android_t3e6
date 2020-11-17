@@ -16,40 +16,4 @@
     <string name="theater_2">Sala de cine 2</string>
     <string name="theater_3">Sala de cine 3</string>
     <string name="no_movie_selected">Toca un elemento para seleccionarlo. Sus detalles se mostrarán aquí. Tócalo de nuevo para deseleccionarlo.</string>
-
-    <string name="movie_akira_name">Akira</string>
-    <string name="movie_akira_director_name">Director de Akira</string>
-    <string name="movie_akira_summary">Sinopsis de Akira ------------------------------------------------------------</string>
-
-    <string name="movie_alien_name">Alien</string>
-    <string name="movie_alien_director_name">Director de Alien</string>
-    <string name="movie_alien_summary">Sinopsis de Alien ------------------------------------------------------------</string>
-
-    <string name="movie_blade_name">Blade</string>
-    <string name="movie_blade_director_name">Director de Blade</string>
-    <string name="movie_blade_summary">Sinopsis de Blade ------------------------------------------------------------</string>
-
-    <string name="movie_d2001_name">D2001</string>
-    <string name="movie_d2001_director_name">Director de D2001</string>
-    <string name="movie_d2001_summary">Sinopsis de D2001 ------------------------------------------------------------</string>
-
-    <string name="movie_dune_name">Dune</string>
-    <string name="movie_dune_director_name">Director de Dune</string>
-    <string name="movie_dune_summary">Sinopsis de Dune ------------------------------------------------------------</string>
-
-    <string name="movie_interstellar_name">Interstellar</string>
-    <string name="movie_interstellar_director_name">Director de Interstellar</string>
-    <string name="movie_interstellar_summary">Sinopsis de Interstellar ------------------------------------------------------------</string>
-
-    <string name="movie_martian_name">Martian</string>
-    <string name="movie_martian_director_name">Director de Martian</string>
-    <string name="movie_martian_summary">Sinopsis de Martian ------------------------------------------------------------</string>
-
-    <string name="movie_matrix_name">Matrix</string>
-    <string name="movie_matrix_director_name">Director de Matrix</string>
-    <string name="movie_matrix_summary">Sinopsis de Matrix ------------------------------------------------------------</string>
-
-    <string name="movie_startrek_name">Startrek</string>
-    <string name="movie_startrek_director_name">Director de Startrek</string>
-    <string name="movie_startrek_summary">Sinopsis de Startrek ------------------------------------------------------------</string>
 </resources>

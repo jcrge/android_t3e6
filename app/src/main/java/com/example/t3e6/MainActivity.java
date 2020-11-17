@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         selectedAgeRating = selectionView.findViewById(R.id.selectedAgeRating);
         selectedCover = selectionView.findViewById(R.id.selectedCover);
 
-        movies = getDefaultMovieList();
+        movies = MovieList.getInstance();
         mainAdapter = new MainAdapter(movies);
         mainAdapter.setSelectionListener(new View.OnClickListener() {
             @Override
@@ -120,111 +121,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             bar.show();
         }
-    }
-
-    private ArrayList<Movie> getDefaultMovieList() {
-        ArrayList<Movie> res = new ArrayList<>();
-        Movie movie;
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_akira_name));
-        movie.setDirectorName(getString(R.string.movie_akira_director_name));
-        movie.setAgeRating(Movie.AgeRating.R_);
-        movie.setCoverId(R.drawable.akira);
-        movie.setReleaseDate("1988");
-        movie.setSummary(getString(R.string.movie_akira_summary));
-        movie.setTheaterName(getString(R.string.theater_1));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_alien_name));
-        movie.setDirectorName(getString(R.string.movie_alien_director_name));
-        movie.setAgeRating(Movie.AgeRating.PG);
-        movie.setCoverId(R.drawable.alien);
-        movie.setReleaseDate("1989");
-        movie.setSummary(getString(R.string.movie_alien_summary));
-        movie.setTheaterName(getString(R.string.theater_2));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_blade_name));
-        movie.setDirectorName(getString(R.string.movie_blade_director_name));
-        movie.setAgeRating(Movie.AgeRating.NC17);
-        movie.setCoverId(R.drawable.blade);
-        movie.setReleaseDate("1990");
-        movie.setSummary(getString(R.string.movie_blade_summary));
-        movie.setTheaterName(getString(R.string.theater_3));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_d2001_name));
-        movie.setDirectorName(getString(R.string.movie_d2001_director_name));
-        movie.setAgeRating(Movie.AgeRating.G);
-        movie.setCoverId(R.drawable.d2001);
-        movie.setReleaseDate("2001");
-        movie.setSummary(getString(R.string.movie_d2001_summary));
-        movie.setTheaterName(getString(R.string.theater_2));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_dune_name));
-        movie.setDirectorName(getString(R.string.movie_dune_director_name));
-        movie.setAgeRating(Movie.AgeRating.PG13);
-        movie.setCoverId(R.drawable.dune);
-        movie.setReleaseDate("1995");
-        movie.setSummary(getString(R.string.movie_dune_summary));
-        movie.setTheaterName(getString(R.string.theater_1));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_interstellar_name));
-        movie.setDirectorName(getString(R.string.movie_interstellar_director_name));
-        movie.setAgeRating(Movie.AgeRating.PG);
-        movie.setCoverId(R.drawable.interstellar);
-        movie.setReleaseDate("2015");
-        movie.setSummary(getString(R.string.movie_interstellar_summary));
-        movie.setTheaterName(getString(R.string.theater_3));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_martian_name));
-        movie.setDirectorName(getString(R.string.movie_martian_director_name));
-        movie.setAgeRating(Movie.AgeRating.PG);
-        movie.setCoverId(R.drawable.martian);
-        movie.setReleaseDate("1989");
-        movie.setSummary(getString(R.string.movie_martian_summary));
-        movie.setTheaterName(getString(R.string.theater_1));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_matrix_name));
-        movie.setDirectorName(getString(R.string.movie_matrix_director_name));
-        movie.setAgeRating(Movie.AgeRating.R_);
-        movie.setCoverId(R.drawable.matrix);
-        movie.setReleaseDate("1901");
-        movie.setSummary(getString(R.string.movie_matrix_summary));
-        movie.setTheaterName(getString(R.string.theater_2));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        movie = new Movie();
-        movie.setMovieName(getString(R.string.movie_startrek_name));
-        movie.setDirectorName(getString(R.string.movie_startrek_director_name));
-        movie.setAgeRating(Movie.AgeRating.PG13);
-        movie.setCoverId(R.drawable.startrek);
-        movie.setReleaseDate("1985");
-        movie.setSummary(getString(R.string.movie_startrek_summary));
-        movie.setTheaterName(getString(R.string.theater_2));
-        movie.setTrailer("https://www.youtube.com/watch?v=oHg5SJYRHA0");
-        res.add(movie);
-
-        return res;
     }
 }
