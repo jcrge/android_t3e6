@@ -2,6 +2,7 @@ package com.example.t3e6;
 
 import android.graphics.drawable.Drawable;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Movie {
@@ -9,11 +10,14 @@ public class Movie {
     private String theaterName = null;
     private String directorName = null;
     private String summary = null;
-    private String releaseDate = null;
+    private Date releaseDate = null;
+    private Integer minutes = null;
     private Integer coverId = null;
     private AgeRating ageRating = null;
     private boolean isFavorite = false;
-    private String trailer = null;
+    private String youtubeId = null;
+
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY/MM/dd");
 
     public Movie() {
     }
@@ -50,11 +54,11 @@ public class Movie {
         this.summary = summary;
     }
 
-    public String getReleaseDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -82,13 +86,26 @@ public class Movie {
         isFavorite = favorite;
     }
 
-    public String getTrailer() {
-        return trailer;
+    public String getYoutubeId() {
+        return youtubeId;
     }
 
-    public void setTrailer(String trailer) {
-        this.trailer = trailer;
+    public void setYoutubeId(String youtubeId) {
+        this.youtubeId = youtubeId;
     }
+
+    public Integer getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(Integer minutes) {
+        this.minutes = minutes;
+    }
+
+    public String getFormattedReleaseDate() {
+        return dateFormat.format(releaseDate);
+    }
+
 
     public static enum AgeRating {
         G("G", R.drawable.g),

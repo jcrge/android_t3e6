@@ -1,11 +1,14 @@
 package com.example.t3e6;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +21,7 @@ public class SummaryActivity extends AppCompatActivity {
     private ImageView summaryCoverImage;
     private TextView summaryText;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +43,14 @@ public class SummaryActivity extends AppCompatActivity {
         summaryCoverImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(movie.getTrailer()));
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
+                String id = movie.getYoutubeId();
+
+                Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
+                try {
+                    startActivity(appIntent);
+                } catch (ActivityNotFoundException e) {
+                    Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=" + id));
+                    startActivity(webIntent);
                 }
             }
         });

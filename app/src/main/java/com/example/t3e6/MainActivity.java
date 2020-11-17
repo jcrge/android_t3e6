@@ -1,5 +1,6 @@
 package com.example.t3e6;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,6 +18,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean initialized = false;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             selectedName.setText(movie.getMovieName());
             selectedDirector.setText(movie.getDirectorName());
             selectedTheater.setText(movie.getTheaterName());
-            selectedReleaseDate.setText(movie.getReleaseDate());
+            selectedReleaseDate.setText(movie.getFormattedReleaseDate());
             selectedAgeRating.setText(movie.getAgeRating().getText());
             selectedCover.setImageResource(movie.getCoverId());
             selectedFavorite.setVisibility(movie.isFavorite() ? View.VISIBLE : View.INVISIBLE);

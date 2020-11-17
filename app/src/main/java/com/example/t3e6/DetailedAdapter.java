@@ -54,7 +54,7 @@ public class DetailedAdapter extends RecyclerView.Adapter<DetailedAdapter.MovieV
         holder.detailedNameText.setText(movie.getMovieName());
         holder.detailedDirectorText.setText(movie.getDirectorName());
         holder.detailedTheaterText.setText(movie.getTheaterName());
-        holder.detailedReleaseDateText.setText(movie.getReleaseDate());
+        holder.detailedReleaseDateText.setText(movie.getFormattedReleaseDate());
         holder.detailedAgeRatingImage.setImageResource(movie.getAgeRating().getResId());
         holder.detailedFavoriteImage.setImageResource(
                 movie.isFavorite()
