@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainAdapter extends RecyclerView.Adapter<MovieViewHolder> {
+public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MovieViewHolder> {
     private ArrayList<Movie> movies;
     private int selectedPos = RecyclerView.NO_POSITION;
     private View.OnClickListener selectionListener = null;
@@ -22,19 +22,36 @@ public class MainAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         this.movies = movies;
     }
 
+    public class MovieViewHolder extends RecyclerView.ViewHolder {
+        public TextView movieNameText;
+        public TextView directorNameText;
+        public ImageView coverImage;
+        public ImageView ageRatingImage;
+
+        public MovieViewHolder(View v) {
+            super(v);
+
+            movieNameText = itemView.findViewById(R.id.overviewMovieName);
+            directorNameText = itemView.findViewById(R.id.overviewDirectorName);
+            coverImage = itemView.findViewById(R.id.overviewCover);
+            ageRatingImage = itemView.findViewById(R.id.overviewAgeRating);
+        }
+    }
+
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MovieViewHolder(parent);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_entry, parent, false);
+        return new MovieViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, final int position) {
         Movie movie = movies.get(position);
-        holder.setMovieName(movie.getMovieName());
-        holder.setDirectorName(movie.getDirectorName());
-        holder.setCoverId(movie.getCoverId());
-        holder.setAgeRating(movie.getAgeRating());
+        holder.movieNameText.setText(movie.getMovieName());
+        holder.directorNameText.setText(movie.getDirectorName());
+        holder.coverImage.setImageResource(movie.getCoverId());
+        holder.ageRatingImage.setImageResource(movie.getAgeRating().getResId());
         holder.itemView.setBackgroundResource(
                 position == selectedPos ? R.color.selectedMovieBg : R.color.defaultMovieBg);
 
