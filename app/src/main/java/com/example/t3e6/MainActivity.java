@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         selectedFavorite = selectionView.findViewById(R.id.selectedFavorite);
 
         movies = MovieList.getInstance();
-        movies.get(0).setFavorite(true);
         mainAdapter = new MainAdapter(movies);
         mainAdapter.setSelectionListener(new View.OnClickListener() {
             @Override
