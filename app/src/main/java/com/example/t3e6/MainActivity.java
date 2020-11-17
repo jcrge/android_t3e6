@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView selectedName;
     private TextView selectedDirector;
     private TextView selectedTheater;
+    private TextView selectedDuration;
     private TextView selectedReleaseDate;
     private TextView selectedAgeRating;
     private ImageView selectedCover;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         selectedName = selectionView.findViewById(R.id.selectedName);
         selectedDirector = selectionView.findViewById(R.id.selectedDirector);
         selectedTheater = selectionView.findViewById(R.id.selectedTheater);
+        selectedDuration = selectionView.findViewById(R.id.selectedDuration);
         selectedReleaseDate = selectionView.findViewById(R.id.selectedReleaseDate);
         selectedAgeRating = selectionView.findViewById(R.id.selectedAgeRating);
         selectedCover = selectionView.findViewById(R.id.selectedCover);
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
             selectedName.setText(movie.getMovieName());
             selectedDirector.setText(movie.getDirectorName());
             selectedTheater.setText(movie.getTheaterName());
+            selectedDuration.setText(movie.getFormattedDuration());
             selectedReleaseDate.setText(movie.getFormattedReleaseDate());
             selectedAgeRating.setText(movie.getAgeRating().getText());
             selectedCover.setImageResource(movie.getCoverId());

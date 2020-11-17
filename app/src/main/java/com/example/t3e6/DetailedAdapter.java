@@ -24,6 +24,7 @@ public class DetailedAdapter extends RecyclerView.Adapter<DetailedAdapter.MovieV
         public TextView detailedDirectorText;
         public TextView detailedTheaterText;
         public TextView detailedReleaseDateText;
+        public TextView detailedDuration;
         public ImageView detailedAgeRatingImage;
         public ImageView detailedFavoriteImage;
         public ImageView detailedCoverImage;
@@ -35,6 +36,7 @@ public class DetailedAdapter extends RecyclerView.Adapter<DetailedAdapter.MovieV
             detailedDirectorText = itemView.findViewById(R.id.detailedDirector);
             detailedTheaterText = itemView.findViewById(R.id.detailedTheater);
             detailedReleaseDateText = itemView.findViewById(R.id.detailedReleaseDate);
+            detailedDuration = itemView.findViewById(R.id.detailedDuration);
             detailedAgeRatingImage = itemView.findViewById(R.id.detailedAgeRating);
             detailedFavoriteImage = itemView.findViewById(R.id.detailedFavorite);
             detailedCoverImage = itemView.findViewById(R.id.detailedCover);
@@ -55,6 +57,7 @@ public class DetailedAdapter extends RecyclerView.Adapter<DetailedAdapter.MovieV
         holder.detailedDirectorText.setText(movie.getDirectorName());
         holder.detailedTheaterText.setText(movie.getTheaterName());
         holder.detailedReleaseDateText.setText(movie.getFormattedReleaseDate());
+        holder.detailedDuration.setText(movie.getFormattedDuration());
         holder.detailedAgeRatingImage.setImageResource(movie.getAgeRating().getResId());
         holder.detailedFavoriteImage.setImageResource(
                 movie.isFavorite()

@@ -7,6 +7,7 @@
     <string name="movie_theater">Sala de cine:</string>
     <string name="movie_release_date">Fecha de estreno:</string>
     <string name="movie_age_rating">Clasificación por edad:</string>
+    <string name="movie_duration">Duración:</string>
     <string name="menu_detailed_list">Lista detallada</string>
     <string name="menu_favorites">Favoritos...</string>
     <string name="menu_add">Añadir...</string>

@@ -106,6 +106,25 @@ public class Movie {
         return dateFormat.format(releaseDate);
     }
 
+    public String getFormattedDuration() {
+        int hours = this.minutes / 60;
+        int minutes = this.minutes % 60;
+
+        StringBuilder builder = new StringBuilder();
+        if (hours > 0) {
+            builder.append(Integer.valueOf(hours) + "h ");
+        }
+        if (minutes > 0) {
+            builder.append(Integer.valueOf(minutes) + "m ");
+        }
+
+        if (builder.length() == 0) {
+            builder.append("-");
+        }
+
+        return builder.toString().trim();
+    }
+
 
     public static enum AgeRating {
         G("G", R.drawable.g),
