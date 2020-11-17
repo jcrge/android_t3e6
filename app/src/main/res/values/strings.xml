@@ -12,9 +12,6 @@
     <string name="menu_add">Add...</string>
     <string name="show_ab">Show ActionBar</string>
     <string name="hide_ab">Hide ActionBar</string>
-    <string name="theater_1">Movie theater 1</string>
-    <string name="theater_2">Movie theater 2</string>
-    <string name="theater_3">Movie theater 3</string>
     <string name="no_movie_selected">Tap over an entry to select it. Its details will be shown here. Tap over it again to deselect it.</string>
     <string name="favorites_desc">Choose which movies you want to mark as favorites:</string>
 </resources>
