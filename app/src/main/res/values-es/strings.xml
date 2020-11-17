@@ -17,4 +17,5 @@
     <string name="theater_2">Sala de cine 2</string>
     <string name="theater_3">Sala de cine 3</string>
     <string name="no_movie_selected">Toca un elemento para seleccionarlo. Sus detalles se mostrarán aquí. Tócalo de nuevo para deseleccionarlo.</string>
+    <string name="favorites_desc">Elige qué películas quieres marcar como favoritas:</string>
 </resources>

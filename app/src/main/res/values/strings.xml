@@ -16,4 +16,5 @@
     <string name="theater_2">Movie theater 2</string>
     <string name="theater_3">Movie theater 3</string>
     <string name="no_movie_selected">Tap over an entry to select it. Its details will be shown here. Tap over it again to deselect it.</string>
+    <string name="favorites_desc">Choose which movies you want to mark as favorites:</string>
 </resources>

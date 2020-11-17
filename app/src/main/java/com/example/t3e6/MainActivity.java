@@ -24,6 +24,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String BUNDLE_SELECTED_MOVIE_POS = "com.example.t3e6.BUNDLE_SELECTED_MOVIE_POS";
+    private static final int REQ_FAVORITES = 1;
+
     private RecyclerView browserRecyclerView;
     private Button toggleAbButton;
     private MainAdapter mainAdapter;
@@ -116,8 +118,24 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
+            case R.id.menuFavorites: {
+                Intent intent = new Intent(this, FavoritesActivity.class);
+                startActivityForResult(intent, REQ_FAVORITES);
+                return true;
+            }
+
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQ_FAVORITES && resultCode == RESULT_OK) {
+            mainAdapter.notifyDataSetChanged();
+            setSelectedMovie(selectedMoviePos);
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
