@@ -1,6 +1,3 @@
-- Make the selection and movie list live through instances of the main activity. It's important to get this
-  working before we implement adding new movies to the list or the favorites list.
-
 - Make the detailed list activity. Make the corresponding menu button redirect to it and make items selectable.
 - Set the item onclick event in the aforementioned list to pass the movie info to a new activity that
   displays the properties of the given movie in full. Create this activity too, obviously.

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String BUNDLE_SELECTED_MOVIE_POS = "com.example.t3e6.BUNDLE_SELECTED_MOVIE_POS";
     private RecyclerView browserRecyclerView;
     private Button toggleAbButton;
     private MainAdapter mainAdapter;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout noSelectionMessage;
 
     private ArrayList<Movie> movies;
+    private int selectedMoviePos;
 
     private boolean initialized = false;
 
@@ -54,21 +56,13 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter.setSelectionListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Movie movie = movies.get(browserRecyclerView.getChildAdapterPosition(v));
-                selectedName.setText(movie.getMovieName());
-                selectedDirector.setText(movie.getDirectorName());
-                selectedTheater.setText(movie.getTheaterName());
-                selectedReleaseDate.setText(movie.getReleaseDate());
-                selectedAgeRating.setText(movie.getAgeRating().getText());
-                selectedCover.setImageResource(movie.getCoverId());
-                selectionView.setVisibility(View.VISIBLE);
-                setSelectedMovieVisible(true);
+                setSelectedMovie(browserRecyclerView.getChildAdapterPosition(v));
             }
         });
         mainAdapter.setDeselectionListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setSelectedMovieVisible(false);
+                setSelectedMovie(RecyclerView.NO_POSITION);
             }
         });
 
@@ -76,7 +70,21 @@ public class MainActivity extends AppCompatActivity {
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         browserRecyclerView.setAdapter(mainAdapter);
 
-        setSelectedMovieVisible(false);
+        setSelectedMovie(RecyclerView.NO_POSITION);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(BUNDLE_SELECTED_MOVIE_POS, selectedMoviePos);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        int selectedMoviePos = savedInstanceState.getInt(BUNDLE_SELECTED_MOVIE_POS);
+        mainAdapter.setSelectedPos(selectedMoviePos);
+        setSelectedMovie(selectedMoviePos);
     }
 
     @Override
@@ -86,7 +94,21 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private void setSelectedMovieVisible(boolean visible) {
+    private void setSelectedMovie(int pos) {
+        selectedMoviePos = pos;
+        boolean visible = pos != RecyclerView.NO_POSITION;
+
+        if (visible) {
+            Movie movie = movies.get(pos);
+
+            selectedName.setText(movie.getMovieName());
+            selectedDirector.setText(movie.getDirectorName());
+            selectedTheater.setText(movie.getTheaterName());
+            selectedReleaseDate.setText(movie.getReleaseDate());
+            selectedAgeRating.setText(movie.getAgeRating().getText());
+            selectedCover.setImageResource(movie.getCoverId());
+        }
+
         noSelectionMessage.setVisibility(visible ? View.GONE : View.VISIBLE);
         selectionView.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
