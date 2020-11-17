@@ -25,7 +25,7 @@ public class MovieList {
         Calendar cal = Calendar.getInstance();
         cal.set(1982,12,3);
         Movie dune=new Movie();
-        dune.setMovieName("Dunelllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+        dune.setMovieName("Dune (este título tan largo es para comprobar que el texto no puede aparecer por encima de otros ítems)");
         dune.setDirectorName("Lynch");
         dune.setMinutes(180);
         dune.setReleaseDate(cal.getTime());
