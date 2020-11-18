@@ -2,10 +2,11 @@ package com.example.t3e6;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Movie {
+public class Movie implements Serializable {
     private String movieName = null;
     private String theaterName = null;
     private String directorName = null;

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private static final String BUNDLE_SELECTED_MOVIE_POS = "com.example.t3e6.BUNDLE_SELECTED_MOVIE_POS";
     private static final int REQ_FAVORITES = 1;
+    private static final int REQ_ADD = 2;
 
     private RecyclerView browserRecyclerView;
     private Button toggleAbButton;
@@ -124,6 +125,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
+            case R.id.menuAdd: {
+                Intent intent = new Intent(this, AddMovieActivity.class);
+                startActivityForResult(intent, REQ_ADD);
+                return true;
+            }
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -134,6 +141,10 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQ_FAVORITES && resultCode == RESULT_OK) {
             mainAdapter.notifyDataSetChanged();
             setSelectedMovie(selectedMoviePos);
+        } else if (requestCode == REQ_ADD && resultCode == RESULT_OK) {
+            Movie movie = (Movie)data.getSerializableExtra(AddMovieActivity.EXTRA_MOVIE);
+            movies.add(movie);
+            browserRecyclerView.getAdapter().notifyItemRangeChanged(movies.size() - 1, 1);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
