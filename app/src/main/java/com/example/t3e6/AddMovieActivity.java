@@ -11,6 +11,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -61,6 +64,8 @@ public class AddMovieActivity extends AppCompatActivity {
         radioPG13 = findViewById(R.id.radioPG13);
         releaseDateCalendar = findViewById(R.id.newReleaseDate);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         theaters = getResources().getStringArray(R.array.theaters);
         theaterAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_dropdown_item, theaters);
@@ -104,6 +109,27 @@ public class AddMovieActivity extends AppCompatActivity {
         selectedReleaseDate.setTimeInMillis(releaseDateCalendar.getDate());
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            case R.id.menuConfirmAdd:
+                acceptClicked();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.add_menu, menu);
+        return true;
+    }
+
     public static class ConfirmQuit extends DialogFragment {
         @NonNull
         @Override
@@ -139,6 +165,10 @@ public class AddMovieActivity extends AppCompatActivity {
     }
 
     public void acceptClicked(View v) {
+        acceptClicked();
+    }
+
+    public void acceptClicked() {
         String name = nameEdit.getText().toString().trim();
         String director = directorEdit.getText().toString().trim();
 

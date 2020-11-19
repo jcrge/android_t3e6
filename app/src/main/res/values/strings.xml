@@ -16,6 +16,7 @@
     <string name="favorites_desc">Choose which movies you want to mark as favorites:</string>
     <string name="confirm_quit_message">Your changes won\'t be saved. Are you sure you want to continue?</string>
     <string name="confirm_quit_title">Discard changes</string>
+    <string name="menu_confirm_add">Add</string>
     <string-array name="theaters">
         <item>Gran vía</item>
         <item>Plaza elíptica</item>

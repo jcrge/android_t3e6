@@ -17,6 +17,7 @@
     <string name="favorites_desc">Elige qué películas quieres marcar como favoritas:</string>
     <string name="confirm_quit_message">No se guardarán los cambios. ¿Estás seguro de que quieres continuar?</string>
     <string name="confirm_quit_title">Cancelar cambios</string>
+    <string name="menu_confirm_add">Añadir</string>
     <string-array name="theaters">
         <item>Gran vía</item>
         <item>Plaza elíptica</item>
