@@ -11,8 +11,6 @@
     <string name="menu_detailed_list">Lista detallada</string>
     <string name="menu_favorites">Favoritos...</string>
     <string name="menu_add">Añadir...</string>
-    <string name="show_ab">Mostrar ActionBar</string>
-    <string name="hide_ab">Ocultar ActionBar</string>
     <string name="no_movie_selected">Toca un elemento para seleccionarlo. Sus detalles se mostrarán aquí. Tócalo de nuevo para deseleccionarlo.</string>
     <string name="favorites_desc">Elige qué películas quieres marcar como favoritas:</string>
     <string name="confirm_quit_message">No se guardarán los cambios. ¿Estás seguro de que quieres continuar?</string>
