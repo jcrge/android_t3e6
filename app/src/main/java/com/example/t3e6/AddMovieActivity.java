@@ -131,6 +131,16 @@ public class AddMovieActivity extends AppCompatActivity {
         return true;
     }
 
+    public void cancelClicked(View v) {
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ConfirmQuit dialog = new ConfirmQuit();
+        dialog.show(getSupportFragmentManager(), CONFIRM_CANCEL_TAG);
+    }
+
     public static class ConfirmQuit extends DialogFragment {
         @NonNull
         @Override
@@ -156,52 +166,9 @@ public class AddMovieActivity extends AppCompatActivity {
         }
     }
 
-    public static class ConfirmAdd extends DialogFragment {
-        private Movie movie;
-
-        public ConfirmAdd(Movie movie) {
-            super();
-            this.movie = movie;
-        }
-
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.confirm_add_message);
-            builder.setTitle(R.string.confirm_add_title);
-
-            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    ((AddMovieActivity)getActivity()).confirmAdd(ConfirmAdd.this.movie);
-                }
-            });
-
-            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-
-            return builder.create();
-        }
-    }
-
     private void confirmCancel() {
         setResult(RESULT_CANCELED);
         finish();
-    }
-
-    private void confirmAdd(Movie movie) {
-        Intent intent = new Intent();
-        intent.putExtra(EXTRA_MOVIE, movie);
-        setResult(RESULT_OK, intent);
-        finish();
-    }
-
-    public void cancelClicked(View v) {
-        onBackPressed();
     }
 
     public void acceptClicked(View v) {
@@ -239,9 +206,42 @@ public class AddMovieActivity extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), CONFIRM_ADD_TAG);
     }
 
-    @Override
-    public void onBackPressed() {
-        ConfirmQuit dialog = new ConfirmQuit();
-        dialog.show(getSupportFragmentManager(), CONFIRM_CANCEL_TAG);
+    public static class ConfirmAdd extends DialogFragment {
+        private Movie movie;
+
+        public ConfirmAdd(Movie movie) {
+            super();
+            this.movie = movie;
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.confirm_add_message);
+            builder.setTitle(R.string.confirm_add_title);
+
+            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    ((AddMovieActivity)getActivity()).confirmAdd(ConfirmAdd.this.movie);
+                }
+            });
+
+            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+
+            return builder.create();
+        }
+    }
+
+    private void confirmAdd(Movie movie) {
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_MOVIE, movie);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }
