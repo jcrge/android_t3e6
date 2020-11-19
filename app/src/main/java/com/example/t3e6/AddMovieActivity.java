@@ -26,7 +26,8 @@ import android.widget.Spinner;
 import java.util.Calendar;
 
 public class AddMovieActivity extends AppCompatActivity {
-    private static String CONFIRM_DIALOG_TAG = "com.example.t3e6.CONFIRM_DIALOG_TAG";
+    private static String CONFIRM_ADD_TAG = "com.example.t3e6.CONFIRM_ADD_TAG";
+    private static String CONFIRM_CANCEL_TAG = "com.example.t3e6.CONFIRM_CANCEL_TAG";
     public static String EXTRA_MOVIE = "com.example.t3e6.EXTRA_MOVIE";
 
     private EditText nameEdit;
@@ -155,8 +156,47 @@ public class AddMovieActivity extends AppCompatActivity {
         }
     }
 
+    public static class ConfirmAdd extends DialogFragment {
+        private Movie movie;
+
+        public ConfirmAdd(Movie movie) {
+            super();
+            this.movie = movie;
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.confirm_add_message);
+            builder.setTitle(R.string.confirm_add_title);
+
+            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    ((AddMovieActivity)getActivity()).confirmAdd(ConfirmAdd.this.movie);
+                }
+            });
+
+            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+
+            return builder.create();
+        }
+    }
+
     private void confirmCancel() {
         setResult(RESULT_CANCELED);
+        finish();
+    }
+
+    private void confirmAdd(Movie movie) {
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_MOVIE, movie);
+        setResult(RESULT_OK, intent);
         finish();
     }
 
@@ -195,15 +235,13 @@ public class AddMovieActivity extends AppCompatActivity {
         movie.setSummary("Sinopsis no disponible.");
         movie.setCoverId(R.drawable.sincara);
 
-        Intent intent = new Intent();
-        intent.putExtra(EXTRA_MOVIE, movie);
-        setResult(RESULT_OK, intent);
-        finish();
+        ConfirmAdd dialog = new ConfirmAdd(movie);
+        dialog.show(getSupportFragmentManager(), CONFIRM_ADD_TAG);
     }
 
     @Override
     public void onBackPressed() {
         ConfirmQuit dialog = new ConfirmQuit();
-        dialog.show(getSupportFragmentManager(), CONFIRM_DIALOG_TAG);
+        dialog.show(getSupportFragmentManager(), CONFIRM_CANCEL_TAG);
     }
 }
