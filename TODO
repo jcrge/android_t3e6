@@ -1,6 +1,0 @@
-- Implement the menu that adds new movies:
-  - onBackPressed(): confirm to cancel with a popup.
-  - Add a proper cancel button, which just calls onBackPressed().
-  - The new movie's details are passed through an Intent to MainActivity,
-    which creates the actual Movie instance, appends it to the movies list
-    and notifies browserRecyclerView about the new element.
